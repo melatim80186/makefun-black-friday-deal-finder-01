@@ -7,13 +7,9 @@
 - Repo: https://github.com/melatim80186/makefun-black-friday-deal-finder-01
   (public, MIT, created 2026-11-27T07:40:58Z — after opening, homepage =
   bounty URL, topic `makefun`).
-- Commit staged for submit: `ea1de33285ce347a7b92d7c89fe6541fdc02eba3`
-  (branch main, PUSHED — this is the submittable commit).
-- Second commit `fef1096` (REVIEW.md + HANDOFF.md only, no entry-code
-  change) is LOCAL-ONLY: the push is stuck on a degraded egress network
-  (git ls-remote also times out; gh api worked earlier). It is NOT
-  needed for submit — submit ea1de33. Parent: re-run `git push` when the
-  network recovers, or submit ea1de33 as-is.
+- Commit staged for submit: the latest commit on main (entry code has
+  been identical since `ea1de33`; later commits only update these docs).
+  Repo is fully pushed — **do NOT edit the repo after submit.**
 - Work dir: ~/workspace/bug-bounty/makefun/black-friday-deal-finder-01/
   (DESIGN-SPEC.md, REVIEW.md, this file, app/, screenshots/, main.ts,
   serve.ts, vendor/makefun-frontend.ts, shots.json, LICENSE, README.md,
