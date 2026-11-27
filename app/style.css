@@ -1,0 +1,260 @@
+/* Black Friday Deal Finder — original design.
+   Deep navy, amber, white cards. Big prices, clear verdicts, one-column
+   phone layout. No web fonts, no images, no network loads. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f2f4f7;
+  color: #141a26;
+  line-height: 1.45;
+}
+
+a { color: #0b5fff; }
+
+/* ---- Hero ---- */
+.hero {
+  background: #0e1420;
+  color: #fff;
+  padding: 20px 20px 16px;
+  text-align: center;
+  border-bottom: 5px solid #f5a623;
+}
+.kicker {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #f5a623;
+}
+.hero h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+.tagline { margin: 8px 0 12px; font-size: 18px; color: #c9d2e0; }
+.stats {
+  margin: 0 auto;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  justify-content: center;
+  font-size: 15px;
+  color: #c9d2e0;
+}
+.stats strong { color: #fff; font-size: 17px; }
+.checked { margin: 12px 0 0; font-size: 13px; color: #8fa0b8; }
+
+/* ---- Layout ---- */
+main { max-width: 1180px; margin: 0 auto; padding: 18px 16px 8px; }
+footer {
+  max-width: 1180px;
+  margin: 8px auto 0;
+  padding: 18px 16px 30px;
+  font-size: 14px;
+  color: #4a5568;
+}
+footer h2 { font-size: 16px; color: #141a26; margin: 0 0 6px; }
+footer p { margin: 6px 0; }
+
+/* ---- Controls ---- */
+.controls {
+  background: #fff;
+  border: 1px solid #dbe1ea;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(14, 20, 32, 0.08);
+}
+#q {
+  width: 100%;
+  font-size: 17px;
+  padding: 11px 13px;
+  border: 2px solid #c4cede;
+  border-radius: 8px;
+}
+#q:focus { outline: none; border-color: #f5a623; }
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+.control-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.control-row select {
+  font-size: 15px;
+  padding: 8px 10px;
+  border: 2px solid #c4cede;
+  border-radius: 8px;
+  background: #fff;
+  min-width: 170px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1.5px solid #c4cede;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+}
+.chip:hover { border-color: #0e1420; }
+.chip.active { background: #0e1420; color: #fff; border-color: #0e1420; }
+.count { font-size: 14px; color: #4a5568; margin: 4px 2px 12px; }
+
+/* ---- Deal grid ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #dbe1ea;
+  border-radius: 12px;
+  padding: 14px 15px 13px;
+  display: flex;
+  flex-direction: column;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.store {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #0b5fff;
+}
+.cat {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+.card h3 { margin: 0 0 8px; font-size: 17px; line-height: 1.3; }
+.card h3 a { color: #141a26; text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.prices { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+.price { font-size: 27px; font-weight: 800; color: #0e1420; }
+.was { font-size: 15px; color: #7a8699; text-decoration: line-through; }
+.off {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  background: #c22727;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.save-line { font-size: 13.5px; color: #334155; margin: 7px 0 4px; }
+.note { font-size: 13.5px; color: #4a5568; margin: 4px 0 8px; flex: 1; }
+.meta { font-size: 12px; color: #7a8699; margin-bottom: 10px; }
+.cta {
+  display: block;
+  text-align: center;
+  background: #0e1420;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.cta:hover { background: #1d2b45; }
+.cta.big { font-size: 17px; padding: 11px; margin-top: 10px; }
+
+/* ---- Verdicts ---- */
+.verdict {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+span.verdict-new-low { background: #067a3d; color: #fff; }
+span.verdict-strong { background: #0b5fff; color: #fff; }
+span.verdict-routine { background: #e2e8f0; color: #475569; }
+.verdict-box {
+  border-radius: 10px;
+  padding: 11px 15px;
+  margin: 11px 0;
+  font-size: 15px;
+  color: #141a26;
+}
+.verdict-box.verdict-new-low { background: #e6f6ec; border: 1.5px solid #067a3d; }
+.verdict-box.verdict-strong { background: #e8f0ff; border: 1.5px solid #0b5fff; }
+.verdict-box.verdict-routine { background: #f1f5f9; border: 1.5px solid #94a3b8; }
+.verdict-box p { margin: 8px 0 0; }
+
+/* ---- Detail page ---- */
+.back { margin: 0 0 12px; font-size: 14px; }
+.detail {
+  background: #fff;
+  border: 1px solid #dbe1ea;
+  border-radius: 12px;
+  padding: 16px 22px;
+  max-width: 760px;
+}
+.detail h2 { margin: 0 0 10px; font-size: 28px; line-height: 1.2; }
+.prices.big .price { font-size: 42px; }
+.prices.big .was { font-size: 19px; }
+.prices.big .off { font-size: 16px; }
+.save-line.big { font-size: 16px; }
+.facts { margin: 16px 0; }
+.facts div {
+  display: flex;
+  gap: 12px;
+  padding: 6px 0;
+  border-top: 1px solid #e6eaf0;
+  font-size: 15px;
+}
+.facts dt { width: 130px; flex: none; font-weight: 700; color: #4a5568; }
+.facts dd { margin: 0; }
+.detail h3 { margin: 12px 0 5px; font-size: 17px; }
+.also { margin: 0; padding-left: 20px; font-size: 15px; }
+.fine { font-size: 13px; color: #7a8699; margin: 12px 0 0; }
+.empty { font-size: 16px; padding: 30px 0; text-align: center; color: #4a5568; }
+
+/* ---- Phone ---- */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 40px; }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding: 18px 14px 14px; }
+  .hero h1 { font-size: 34px; white-space: normal; }
+  .tagline { font-size: 16px; }
+  .controls { position: static; }
+  .control-row { flex-direction: column; }
+  .control-row select { width: 100%; }
+  .detail { padding: 16px; }
+  .detail h2 { font-size: 23px; }
+  .prices.big .price { font-size: 34px; }
+  .facts div { flex-direction: column; gap: 1px; }
+  .facts dt { width: auto; }
+}
