@@ -8,7 +8,12 @@
   (public, MIT, created 2026-11-27T07:40:58Z — after opening, homepage =
   bounty URL, topic `makefun`).
 - Commit staged for submit: `ea1de33285ce347a7b92d7c89fe6541fdc02eba3`
-  (branch main, pushed). **Do NOT edit the repo after submit.**
+  (branch main, PUSHED — this is the submittable commit).
+- Second commit `fef1096` (REVIEW.md + HANDOFF.md only, no entry-code
+  change) is LOCAL-ONLY: the push is stuck on a degraded egress network
+  (git ls-remote also times out; gh api worked earlier). It is NOT
+  needed for submit — submit ea1de33. Parent: re-run `git push` when the
+  network recovers, or submit ea1de33 as-is.
 - Work dir: ~/workspace/bug-bounty/makefun/black-friday-deal-finder-01/
   (DESIGN-SPEC.md, REVIEW.md, this file, app/, screenshots/, main.ts,
   serve.ts, vendor/makefun-frontend.ts, shots.json, LICENSE, README.md,
@@ -57,7 +62,8 @@ retry in flight, /tmp/bf-judge-result.json).
 - Account: @southernn13. Payout wallet
   6pFtaRP93gENZUmSHFAHrXx1F1PpDeiBd4DoZaze1U9j. Keypair
   ~/workspace/bug-bounty/makefun/makefun-keypair.json (mode 600).
-- If the local-judge retry (in /tmp/bf-judge-result.json) says our cover
-  LOSES to the 8-deal starter, do not submit blindly — tell the user and
-  re-check the screenshots first. If it wins or is unavailable (429),
-  submit the staged commit as-is.
+- Local judge vs starter: UNAVAILABLE (Z.ai 429 on two runs, no verdict
+  recorded — see REVIEW.md §3). No measured win-rate exists; submit on
+  the strength of the kit checks + manual review, and report that
+  honestly. Parent may re-run the judge later with the same command in
+  REVIEW.md §3.

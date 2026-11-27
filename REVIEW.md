@@ -94,12 +94,15 @@ opponents could be fetched. Fallback comparison: our cover (1-deals.jpg)
 vs the kit starter's cover (house site 2, a plain 8-deal list) via
 local_judge.py (GLM-4.6V-Flash vision, verbatim judge brief from
 competition.yaml), 1 game × 2 orders.
-Result: PENDING — run started 27 Nov ~07:52 WIB, still in flight at
-staging time (Z.ai free tier slow/429 backoffs). See /tmp/bf-judge-result.json
-if it completed; parent: re-run or read it before submitting. Expectation:
-our 33-deal board with verdicts, filters and stats should beat the
-8-deal starter list by a clear margin on criteria 1–3; if the judge
-says otherwise, that is a real signal, not noise to ignore.
+Result: UNAVAILABLE — two runs (27 Nov ~07:52 and ~08:05 WIB, 1 game × 2
+orders each) both died on Z.ai free-tier HTTP 429 (code 1305, "temporarily
+overloaded") after all retries (~12 min and ~16 min). No verdict was
+recorded either time. The comparison is therefore NOT measured; the
+parent may re-run it later (same command, results resume per-game).
+Manual reading instead: our cover shows 33 deals with prices, verdicts,
+filters and stats; the starter cover shows 8 deals in a plain list with a
+search box only. On the brief's criteria 1–3 that is a clear structural
+advantage, but it is NOT a measured win-rate — do not cite one.
 
 ## 4. Known limits / risks (honest)
 
